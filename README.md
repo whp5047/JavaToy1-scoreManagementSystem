@@ -1,2 +1,2 @@
-# toy1-scoreManagementSystem
+# JavaToy1-scoreManagementSystem
 성적 관리 프로그램

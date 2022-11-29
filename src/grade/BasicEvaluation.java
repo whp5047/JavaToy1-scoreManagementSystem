@@ -1,6 +1,6 @@
 package grade;
 
-public class BasicEvaluation implements GradeEaluation{
+public class BasicEvaluation implements GradeEvaluation{
 
 	@Override
 	public String getGrade(int point) {

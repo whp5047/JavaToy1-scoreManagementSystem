@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import grade.BasicEvaluation;
 import grade.GradeEvaluation;
 import grade.MajorEvaluation;
+import grade.PassFailEvaluation;
 import school.School;
 import school.Score;
 import school.Student;
@@ -65,7 +66,7 @@ public class GenerateGradeReport {
 		ArrayList<Score> scoreList = student.getScoreList();
 		int majorId = student.getMajorSubject().getSubjectId();
 		
-		GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation()}; // 같은 인터페이스를 구현하였기 때문에 배열로 가능
+		GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation(), new PassFailEvaluation()}; // 같은 인터페이스를 구현하였기 때문에 배열로 가능
 		
 		for( int i = 0 ; i< scoreList.size(); i++) {
 			Score score = scoreList.get(i);
@@ -73,7 +74,10 @@ public class GenerateGradeReport {
 			if (score.getSubject().getSubjectId() == subject.getSubjectId()) { // 현재 학점을 산출할 과목
 				String grade;
 				
-				if(score.getSubject().getSubjectId() == majorId) { // 전공인경우
+				if( score.getSubject().getGradeType() == Define.PF_TYPE) {
+					grade = gradeEvaluation[Define.PF_TYPE].getGrade(score.getPoint());
+				
+				}else if(score.getSubject().getSubjectId() == majorId) { // 전공인경우
 					grade = gradeEvaluation[Define.SAB_TYPE].getGrade(score.getPoint()); // 전공 과목 학점 평가로 선택
 					
 				}else {

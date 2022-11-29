@@ -44,6 +44,14 @@ public class Student {
 	public void setMajorSubject(Subject majorSubject) {
 		this.majorSubject = majorSubject;
 	}
+
+	public ArrayList<Score> getScoreList() {
+		return scoreList;
+	}
+
+	public void setScoreList(ArrayList<Score> scoreList) {
+		this.scoreList = scoreList;
+	}
 	
 	
 	

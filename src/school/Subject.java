@@ -51,7 +51,9 @@ public class Subject {
 		this.studentList = studentList;
 	}
 	
-	
+	public void register(Student student) {
+		studentList.add(student);
+	}
 	
 	
 	
